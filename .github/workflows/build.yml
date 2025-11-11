@@ -3,7 +3,7 @@ name: Build wheels and upload to GitHub Releases
 on:
   push:
     tags:
-      - "v*"
+      - "v0.1"
 
 jobs:
   create_releases:
