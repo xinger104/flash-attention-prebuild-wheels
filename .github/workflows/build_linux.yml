@@ -2,27 +2,25 @@
 # Build wheels with GitHub hosted runner
 # #########################################################
 
-name: "[Linux x86_64] Build linux"
+name: "[Linux x86_64] Build wheels and upload to GitHub Releases"
 
 on:
-  workflow_dispatch:
-  
   workflow_call:
     inputs:
       flash-attn-version:
-        description: "2.8.2"
+        description: "Flash-Attention version"
         required: true
         type: string
       python-version:
-        description: "3.13"
+        description: "Python version"
         required: true
         type: string
       torch-version:
-        description: "2.8"
+        description: "PyTorch version"
         required: true
         type: string
       cuda-version:
-        description: "12.8"
+        description: "CUDA version"
         required: true
         type: string
 
@@ -35,6 +33,7 @@ jobs:
       TERM: xterm-256color
     steps:
       - uses: actions/checkout@v4
+
       - name: Maximize build space
         run: |
           df -h
@@ -49,6 +48,7 @@ jobs:
         uses: pierotofy/set-swap-space@master
         with:
           swap-size-gb: 48
+
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ inputs.python-version }}
