@@ -5,6 +5,8 @@
 name: "[Linux x86_64] Build linux"
 
 on:
+  workflow_dispatch:
+  
   workflow_call:
     inputs:
       flash-attn-version:
