@@ -7,19 +7,19 @@ name: "[Linux x86_64] Build wheels and upload to GitHub Releases"
 on:
   workflow_call:
     inputs:
-      flash-attn-version:
+      flash-attn-version:2.8.2
         description: "Flash-Attention version"
         required: true
         type: string
-      python-version:
+      python-version:3.13
         description: "Python version"
         required: true
         type: string
-      torch-version:
+      torch-version:2.8
         description: "PyTorch version"
         required: true
         type: string
-      cuda-version:
+      cuda-version:12.8
         description: "CUDA version"
         required: true
         type: string
